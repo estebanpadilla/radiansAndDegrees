@@ -1,0 +1,23 @@
+{
+  "name": "radiasanddegrees",
+  "version": "1.0.0",
+  "description": "Understanding radian and degrees on the html canvas.",
+  "main": "server.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estebanpadilla/radiasAndDegrees.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estebanpadilla/radiasAndDegrees/issues"
+  },
+  "homepage": "https://github.com/estebanpadilla/radiasAndDegrees#readme",
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
