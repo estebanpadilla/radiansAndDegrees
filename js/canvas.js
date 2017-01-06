@@ -7,22 +7,26 @@ window.addEventListener('load', init, false);
 function init() {
 
     var pool = [];
-    var canvas = undefined;
-    var context = undefined;
-    var xLine = undefined;
-    var yLine = undefined;
-    var circleBg = undefined;
-    var circle = undefined;
-    var clickPoint = undefined;
-    var center = undefined;
-    var ceroArrow = undefined;
-    var angleArrow = undefined;
-    var radiansText = undefined;
-    var degreesText = undefined;
-    var ceroPIText = undefined;
-    var halfPIText = undefined;
-    var onePIText = undefined;
-    var oneAndHalfPIText = undefined;
+    var canvas = null;
+    var context = null;
+    var xLine = null;
+    var yLine = null;
+    var circleBg = null;
+    var circle = null;
+    var clickPoint = null;
+    var center = null;
+    var ceroArrow = null;
+    var angleArrow = null;
+    var radiansText = null;
+    var degreesText = null;
+    var ceroPIText = null;
+    var halfPIText = null;
+    var onePIText = null;
+    var oneAndHalfPIText = null;
+    var sinText = null;
+    var cosTxt = null;
+    var tan = null;
+
 
     var x = 0;
     var y = 0;
@@ -104,6 +108,18 @@ function init() {
     oneAndHalfPIText.text = '1.5π, 180°';
 
 
+    sinText = new EPText(Vector(20, (y + 200)), 200, 0, 15, 'white', context);
+    pool.push(sinText);
+    sinText.text = 'sin: ' + Number((Math.sin(angle_r)).toFixed(2));
+
+    cosTxt = new EPText(Vector(20, (y + 220)), 200, 0, 15, 'white', context);
+    cosTxt.text = 'cos: ' + Number((Math.cos(angle_r)).toFixed(2));
+    pool.push(cosTxt);
+
+    // tanTxt = new EPText(Vector(20, 484), 200, 0, 15, 'white', context);
+    // tanTxt.text = 'tan: ' + Math.tan(angle_r);
+    // pool.push(tanTxt);
+
     function update() {
         context.clearRect(0, 0, width, height);
 
@@ -122,11 +138,15 @@ function init() {
             angle_r = Math.PI + (Math.PI + angle_r);
         }
 
+
+        sinText.text = 'sin: ' + Number((Math.sin(angle_r)).toFixed(2));
+        cosTxt.text = 'cos: ' + Number((Math.cos(angle_r)).toFixed(2));
+        // tanTxt.text = 'tan: ' + Math.tan(angle_r);
         circle.startAngle = angle_r;
         angle_d = Math.ceil(toDegrees(angle_r));
         angleArrow.angle = angle_d;
         clickPoint.position = Vector(x, y).endPoint(angle_d, radius);
-        radiansText.text = '' + ('' + angle_r).slice(0, 6) + ' rad';
+        radiansText.text = '' + Number(angle_r).toFixed(2) + ' rad';
         degreesText.text = '' + angle_d + '°';
     }
 
