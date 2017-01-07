@@ -42,77 +42,77 @@ function init() {
     context = canvas.getContext('2d');
 
     for (var i = 0; i < width; i += 20) {
-        var line = new Line(Vector(i, 0), height, 90, '#5e2b83', context);
+        var line = new Line(Vector(i, 0), height, 90, AppColors().lineColor1, context);
         pool.push(line);
     }
 
     for (var i = 0; i < height; i += 20) {
-        var line = new Line(Vector(0, i), width, 0, '#5e2b83', context);
+        var line = new Line(Vector(0, i), width, 0, AppColors().lineColor1, context);
         pool.push(line);
     }
 
     x = 300;
     y = 300;
-    xLine = new Line(Vector(x, 0), height, 90, '#ee3344', context);
+    xLine = new Line(Vector(x, 0), height, 90, AppColors().lineColor2, context);
     pool.push(xLine);
-    yLine = new Line(Vector(0, y), width, 0, '#ee3344', context);
+    yLine = new Line(Vector(0, y), width, 0, AppColors().lineColor2, context);
     pool.push(yLine);
 
-    circleBg = new Circle(Vector(x, y), radius, '#ee3344', context, false, true);
+    circleBg = new Circle(Vector(x, y), radius, AppColors().circleColor1, context, false, true);
     pool.push(circleBg);
     circleBg.lineWidth = 4;
 
-    circle = new Circle(Vector(x, y), radius, '#b5e2ef', context, false, true);
+    circle = new Circle(Vector(x, y), radius, AppColors().circleColor2, context, false, true);
     pool.push(circle);
     circle.isClockWise = true;
     circle.startAngle = angle_r;
     circle.lineWidth = 4;
 
-    ceroArrow = new Line(Vector(x, y), radius, 0, '#b5e2ef', context);
+    ceroArrow = new Line(Vector(x, y), radius, 0, AppColors().circleColor2, context);
     pool.push(ceroArrow);
     ceroArrow.lineWidth = 4;
 
-    center = new Circle(Vector(x, y), 6, '#b5e2ef', context, true, false);
+    center = new Circle(Vector(x, y), 6, AppColors().circleColor2, context, true, false);
     pool.push(center);
 
     angle_d = toDegrees(angle_r)
-    angleArrow = new Line(Vector(x, y), radius, angle_d, '#b5e2ef', context);
+    angleArrow = new Line(Vector(x, y), radius, angle_d, AppColors().circleColor2, context);
     pool.push(angleArrow);
     angleArrow.lineWidth = 4;
 
-    clickPoint = new Circle(Vector(x, y).endPoint(angle_d, radius), 6, '#b5e2ef', context, true, false);
+    clickPoint = new Circle(Vector(x, y).endPoint(angle_d, radius), 6, AppColors().circleColor2, context, true, false);
     pool.push(clickPoint);
 
-    radiansText = new EPText(Vector(25, 50), 200, 0, 30, 'white', context);
+    radiansText = new EPText(Vector(25, 50), 200, 0, 30, AppColors().textColor, context);
     pool.push(radiansText);
     radiansText.text = 'Radians: ' + ('' + angle_r).slice(0, 6);
 
-    degreesText = new EPText(Vector(25, 85), 200, 0, 30, 'white', context);
+    degreesText = new EPText(Vector(25, 85), 200, 0, 30, AppColors().textColor, context);
     pool.push(degreesText);
     degreesText.text = 'Degrees: ' + angle_d;
 
-    ceroPIText = new EPText(Vector((x + radius + 10), (y - 10)), 200, 0, 15, 'white', context);
+    ceroPIText = new EPText(Vector((x + radius + 10), (y - 10)), 200, 0, 15, AppColors().textColor, context);
     pool.push(ceroPIText);
     ceroPIText.text = '0π, 0°';
 
-    halfPIText = new EPText(Vector((x + 10), (y + radius + 25)), 200, 0, 15, 'white', context);
+    halfPIText = new EPText(Vector((x + 10), (y + radius + 25)), 200, 0, 15, AppColors().textColor, context);
     pool.push(halfPIText);
     halfPIText.text = '0.5π, 90°';
 
-    onePIText = new EPText(Vector((x - (radius + 65)), (y - 10)), 200, 0, 15, 'white', context);
+    onePIText = new EPText(Vector((x - (radius + 65)), (y - 10)), 200, 0, 15, AppColors().textColor, context);
     pool.push(onePIText);
     onePIText.text = '1π, 180°';
 
-    oneAndHalfPIText = new EPText(Vector((x + 10), (y - (radius + 10))), 200, 0, 15, 'white', context);
+    oneAndHalfPIText = new EPText(Vector((x + 10), (y - (radius + 10))), 200, 0, 15, AppColors().textColor, context);
     pool.push(oneAndHalfPIText);
     oneAndHalfPIText.text = '1.5π, 180°';
 
 
-    sinText = new EPText(Vector(20, (y + 200)), 200, 0, 15, 'white', context);
+    sinText = new EPText(Vector(20, (y + 200)), 200, 0, 15, AppColors().textColor, context);
     pool.push(sinText);
     sinText.text = 'sin: ' + Number((Math.sin(angle_r)).toFixed(2));
 
-    cosTxt = new EPText(Vector(20, (y + 220)), 200, 0, 15, 'white', context);
+    cosTxt = new EPText(Vector(20, (y + 220)), 200, 0, 15, AppColors().textColor, context);
     cosTxt.text = 'cos: ' + Number((Math.cos(angle_r)).toFixed(2));
     pool.push(cosTxt);
 
@@ -121,6 +121,7 @@ function init() {
     // pool.push(tanTxt);
 
     function update() {
+
         context.clearRect(0, 0, width, height);
 
         pool.forEach(function (shape) {
@@ -165,7 +166,7 @@ function createCanvas(x, y, width, height) {
     document.body.appendChild(canvas);
     canvas.width = width;
     canvas.height = height;
-    canvas.style.background = '#2b0d3b';
+    canvas.style.background = AppColors().backgroundColor;
     canvas.style.position = 'absolute';
     canvas.style.left = x;
     canvas.style.top = y;
