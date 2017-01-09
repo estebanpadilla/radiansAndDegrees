@@ -10,4 +10,5 @@ function AppColors() {
     this.textColor = '#353535';
     this.circleColor1 = '#00adef';
     this.circleColor2 = 'orangered';
+
 }
