@@ -7,26 +7,7 @@ window.addEventListener('load', init, false);
 function init() {
 
     var pool = [];
-    var canvas = null;
-    var context = null;
-    var xLine = null;
-    var yLine = null;
-    var circleBg = null;
-    var circle = null;
-    var clickPoint = null;
-    var center = null;
-    var ceroArrow = null;
-    var angleArrow = null;
-    var radiansText = null;
-    var degreesText = null;
-    var ceroPIText = null;
-    var halfPIText = null;
-    var onePIText = null;
-    var oneAndHalfPIText = null;
-    var sinText = null;
-    var cosTxt = null;
-    var tan = null;
-
+    var canvas, context, xLine, yLine, circleBg, circle, clickPoint, center, ceroArrow, angleArrow, radiansText, degreesText, ceroPIText, halfPIText, onePIText, oneAndHalfPIText, sinText, cosTxt, tan;
 
     var x = 0;
     var y = 0;
